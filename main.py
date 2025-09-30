@@ -45,7 +45,7 @@ def fazer_login(driver, user, password):
         print("✅ Login realizado com sucesso!")
         return True
     except Exception as e:
-        print(f"❌ Falha no login: {e}")
+        print(f"Falha no login: {e}")
         return False
 
 def main():
@@ -54,50 +54,39 @@ def main():
     LOGIN_USER = os.getenv("SCI_USER")
     LOGIN_PASS = os.getenv("SCI_PASS")
     
-    # Dicionário de automações disponíveis
-    # A chave é a opção do menu, o valor contém a descrição e a função a ser chamada
     automations = {
         "1": {
             "description": "Atualizar CNPJ da Empresa de Teste",
             "function": trocar_cnpj.executar
         },
-        # Futuramente, adicione novas automações aqui:
-        # "2": {
-        #     "description": "Gerar Relatório Mensal",
-        #     "function": relatorio_mensal.executar
-        # },
     }
 
     choice = exibir_menu(automations)
 
     if choice == "0":
-        print("👋 Saindo...")
+        print("Saindo...")
         sys.exit(0)
     
     if choice not in automations:
-        print("❌ Opção inválida!")
+        print("Opção inválida!")
         sys.exit(1)
         
     driver = None
     try:
-        # Inicia o navegador
         chrome_options = Options()
         chrome_options.add_experimental_option("detach", True)
         driver = webdriver.Chrome(options=chrome_options)
         
         # Faz o login
         if not fazer_login(driver, LOGIN_USER, LOGIN_PASS):
-            # Se o login falhar, não continua
             return 
         
-        # Pega a função escolhida do dicionário e a executa
         selected_automation = automations[choice]['function']
-        selected_automation(driver) # Passa o driver já logado para a função
+        selected_automation(driver)
 
     except Exception as e:
-        print(f"❌ Ocorreu um erro geral no processo: {e}")
+        print(f"Ocorreu um erro geral no processo: {e}")
     finally:
-        # A decisão de fechar ou não o navegador fica aqui
         input("\n... Pressione Enter para fechar o navegador ...")
         if driver:
             driver.quit()

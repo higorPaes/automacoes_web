@@ -20,17 +20,17 @@ def executar(driver):
         CNPJ = os.getenv("CNPJ_TESTE")
         NOME_EMPRESA = os.getenv("EMPRESA_TESTE")
 
-        print("🚀 Iniciando automação: Atualizar CNPJ...")
+        print("Iniciando automação: Atualizar CNPJ...")
         wait = WebDriverWait(driver, 20)
 
-        print("🔍 Navegando para a área de empresas...")
+        print("Navegando para a área de empresas...")
         card_cnd = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="cnd2"]')))
         card_cnd.click()
 
         opc_empresa = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#nav > ul > li:nth-child(3)')))
         opc_empresa.click()
 
-        print(f"🔎 Buscando pela empresa: {NOME_EMPRESA}")
+        print(f"Buscando pela empresa: {NOME_EMPRESA}")
         input_empresa = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="JColResizer0"]/thead/tr[2]/td[2]/input')))
         
         for char in NOME_EMPRESA:
@@ -38,11 +38,11 @@ def executar(driver):
             time.sleep(random() / 5)
         input_empresa.send_keys(Keys.ENTER)
 
-        print("✏️ Acessando informações da empresa...")
+        print("Acessando informações da empresa...")
         info_empresa = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="JColResizer0"]/tbody/tr/td[10]/a[1]')))
         info_empresa.click()
 
-        print(f"🔄 Atualizando CNPJ para: {CNPJ}")
+        print(f"Atualizando CNPJ para: {CNPJ}")
         input_doc = wait.until(EC.visibility_of_element_located((By.ID, 'numero_documento')))
         input_doc.clear()
         input_doc.send_keys(CNPJ)
