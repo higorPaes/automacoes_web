@@ -32,6 +32,7 @@ Isso garante que as dependências do projeto não interfiram com outros projetos
 python -m venv venv
 
 # Ative o ambiente
+
 # No Windows:
 .\venv\Scripts\activate
 
