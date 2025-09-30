@@ -1,4 +1,3 @@
-# automations/trocar_cnpj.py
 import os
 import time
 from random import random
@@ -6,9 +5,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
-# Note que não precisamos mais de 'sys' ou 'load_dotenv' aqui.
-# O login e as configurações serão gerenciados pelo main.py.
 
 def executar(driver):
     """
