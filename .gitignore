@@ -1,0 +1,8 @@
+# Conteúdo do .gitignore
+
+# Ambiente Virtual
+venv/
+__pycache__/
+
+# Arquivo de configuração de ambiente
+.env
