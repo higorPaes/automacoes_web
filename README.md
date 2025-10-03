@@ -2,9 +2,12 @@
 
 Este projeto contém scripts para automatizar tarefas repetitivas dentro do sistema SCI Web.
 
-## Módulo Atual: Atualização de CNPJ de Empresa Teste
+## Módulos Atuais: Atualização de CNPJ de Empresa Teste, Seleciona CND
 
-O script `main.py` realiza o login no sistema, busca por uma empresa de teste pré-definida e atualiza o seu CNPJ.
+O script `main.py` realiza apresenta um menu onde você escolhe qual opção de automação deseja prosseguir:
+
+1. Atualização de CNPJ da empresa Teste
+2. Selecionar CNDs da env.
 
 ---
 

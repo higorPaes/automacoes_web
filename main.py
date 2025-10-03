@@ -7,7 +7,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from automations import trocar_cnpj
+from automations import selecionar_cnd, trocar_cnpj
+
 
 def exibir_menu(automations):
     """Exibe o menu de opções para o usuário com uma estrutura melhorada."""
@@ -59,6 +60,10 @@ def main():
             "description": "Atualizar CNPJ da Empresa de Teste",
             "function": trocar_cnpj.executar
         },
+        "2": {
+            "description": "Selecionar CND",
+            "function": selecionar_cnd.executar
+        }
     }
 
     choice = exibir_menu(automations)
